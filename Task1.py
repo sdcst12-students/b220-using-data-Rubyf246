@@ -236,6 +236,13 @@ for key, value in zip(upp_dict.keys(), upp_dict.values()):
         print(f" main word name " + f"{key}" )
         my_upp = value
         print ("                        size: " + str(getattr(my_upp, 'size')))
+        ######### atm, hyd, pop, gov, law_lvl, tech_lvl)
+        print ("                        atm: " + str(getattr(my_upp, 'atm')))
+        print ("                        hyd: " + str(getattr(my_upp, 'hyd')))
+        print ("                        pop: " + str(getattr(my_upp, 'pop')))
+        print ("                        gov: " + str(getattr(my_upp, 'gov')))
+        print ("                        law_lvl: " + str(getattr(my_upp, 'law_lvl')))
+        print ("                        tech_lvl: " + str(getattr(my_upp, 'tech_lvl')))
         
         
         
