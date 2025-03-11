@@ -25,3 +25,4 @@ Your program for today should generate a dictionary that stores the data you gen
 What comes next?
 You will be using a while or for loop to generate multiple data entries to store in a list that we will eventually be writing to a file in JSON format so that we can open and decode it later.
 
+fg
