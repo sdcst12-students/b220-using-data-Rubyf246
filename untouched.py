@@ -28,23 +28,16 @@ class StarSystem:
     gov = 0
     law_lvl = 0
     tech_lvl = 0
+    D2 = 0
     starport = 'X'
     naval_base = 'yes'
     scout_base = 'yes'
     gas_giant = "yes"
     planetoids = "yes"
     
-    def D2(self):
-        return random.randint(1, 6) + random.randint(1, 6)
-    
-    def D1(self):
-        return random.randint(1, 6)
      
     ############################# initialize a star system object (class constructor) ################################################################  
-    def  __init__ (self):
-    
-        D2 = self.D2()
-        myd1 = self.D1()
+    def  __init__(self, D2):
        # print (" D2 in class: " + str(D2))
         self.mainworldname = ''.join([random.choice(string.ascii_uppercase + string.digits) for _ in range(6)])
             #2A find startport type:
@@ -137,7 +130,7 @@ class StarSystem:
         }
     
         # 5B main work size 2D-2
-        size_b4 = D2 -2
+        size_b4 = self.D2-2
         #print(f" size before DM is " + f"{size_b4}".rjust(2)) 
         if (size_b4 in range(16)):
             dm_size = getattr(DM_dict.get(size_b4), "size")
@@ -151,7 +144,7 @@ class StarSystem:
         if (self.size == 0):
            self.atm = 0
         else:
-            atm_b4 = D2 - 7 + self.size
+            atm_b4 = self.D2 - 7 + self.size
             
             #print(f" atm before DM is " + f"{atm_b4}".rjust(2)) 
             if (atm_b4 in range(16)):
@@ -218,9 +211,7 @@ class StarSystem:
         dm_pop = getattr(DM_dict.get(myd1), "pop")
         dm_gov = getattr(DM_dict.get(myd1), "gov")
         self.tech_level = myd1 + dm_size + dm_atm + dm_hyd + dm_pop + dm_gov
-#      
         #print(f" tech_level is " + f"{tech_level}".rjust(2))     
-        #      
 
 ####################### end of definition of star system class ##########################################
 
@@ -230,35 +221,31 @@ class StarSystem:
 ######################## MAIN ####################################
  
 #"===========randomly generate star system objects and add to a list ==============================
+star_system_list = []
 
-
-#for i in range(10):
-#    myd1 = random.randint(1,6)
-#    myd2 = random.randint(1,6)
-#    D2 = myd1 + myd2
-#    my_starsys = StarSystem(D2)  # create\build an object of star system class
-#    star_system_list.append(my_starsys)
-
+for i in range(10):
+    myd1 = random.randint(1,6)
+    myd2 = random.randint(1,6)
+    D2 = myd1 + myd2
+    my_starsys = StarSystem(D2)  # create\build an object of star system class
+    star_system_list.append(my_starsys)
 
 
 ################# print out the values of attributes of each start system in the list
-
-starsys = StarSystem()  # create\build an object of star system class
+for starsys in star_system_list:
     
-print ("  main world name: " + starsys.mainworldname)
-print ("      size: " + str(starsys.size))
-print ("      atm: " + str(starsys.atm))
-print ("      hyd: " + str(starsys.hyd))
-print ("      pop: " + str(starsys.pop))
-print ("      gov: " + str(starsys.gov))
-print ("      law_lvl: " + str(starsys.law_lvl))
-print ("      tech_lvl: " + str(starsys.tech_lvl))
-print ("      starport: " + starsys.starport)
-print ("      naval_base: " + starsys.naval_base)
-print ("      scout_base: " + starsys.scout_base)
-print ("      gas_giant: " + starsys.gas_giant)
-print ("      planetoids: " + starsys.planetoids)
+    print ("  main world name: " + starsys.mainworldname)
+    print ("      size: " + str(starsys.size))
+    print ("      atm: " + str(starsys.atm))
+    print ("      hyd: " + str(starsys.hyd))
+    print ("      pop: " + str(starsys.pop))
+    print ("      gov: " + str(starsys.gov))
+    print ("      law_lvl: " + str(starsys.law_lvl))
+    print ("      tech_lvl: " + str(starsys.tech_lvl))
+    print ("      starport: " + starsys.starport)
+    print ("      naval_base: " + starsys.naval_base)
+    print ("      scout_base: " + starsys.scout_base)
+    print ("      gas_giant: " + starsys.gas_giant)
+    print ("      planetoids: " + starsys.planetoids)
 
  
-        
-        
